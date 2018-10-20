@@ -62,21 +62,27 @@ dependencies {
 apply plugin: 'com.google.ar.sceneform.plugin'
 
 sceneform.asset('sampledata/models/frame_lower_left.obj',
-        'default',
+        'mlh',
         'sampledata/models/frame_lower_left.sfa',
         'src/main/assets/models/frame_lower_left')
 
 sceneform.asset('sampledata/models/frame_lower_right.obj',
-        'default',
+        'mlh',
         'sampledata/models/frame_lower_right.sfa',
         'src/main/assets/models/frame_lower_right')
 
 sceneform.asset('sampledata/models/frame_upper_left.obj',
-        'default',
+        'mlh',
         'sampledata/models/frame_upper_left.sfa',
         'src/main/assets/models/frame_upper_left')
 
 sceneform.asset('sampledata/models/frame_upper_right.obj',
-        'default',
+        'mlh',
         'sampledata/models/frame_upper_right.sfa',
         'src/main/assets/models/frame_upper_right')
+
+
+sceneform.asset('sampledata/models/blackwordstencil.obj',
+        'mlh',
+        'sampledata/models/blackwordstencil.sfa',
+        'src/main/assets/blackwordstencil')

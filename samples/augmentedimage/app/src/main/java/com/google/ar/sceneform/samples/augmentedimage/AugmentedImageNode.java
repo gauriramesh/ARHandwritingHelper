@@ -24,6 +24,9 @@ import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.Texture;
+import com.google.ar.sceneform.rendering.ViewRenderable;
+
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -45,6 +48,7 @@ public class AugmentedImageNode extends AnchorNode {
   private static CompletableFuture<ModelRenderable> urCorner;
   private static CompletableFuture<ModelRenderable> lrCorner;
   private static CompletableFuture<ModelRenderable> llCorner;
+  private static CompletableFuture<ModelRenderable> stencil;
 
   public AugmentedImageNode(Context context) {
     // Upon construction, start loading the models for the corners of the frame.
@@ -65,6 +69,10 @@ public class AugmentedImageNode extends AnchorNode {
           ModelRenderable.builder()
               .setSource(context, Uri.parse("models/frame_lower_right.sfb"))
               .build();
+      stencil =
+              ModelRenderable.builder()
+                      .setSource(context, Uri.parse("models/blackwordstencil.sfb"))
+                      .build();
     }
   }
 
@@ -96,33 +104,41 @@ public class AugmentedImageNode extends AnchorNode {
     Vector3 localPosition = new Vector3();
     Node cornerNode;
 
-    // Upper left corner.
-    localPosition.set(-0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
-    cornerNode = new Node();
-    cornerNode.setParent(this);
-    cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(ulCorner.getNow(null));
+//    // Upper left corner.
+//    localPosition.set(-0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(ulCorner.getNow(null));
 
-    // Upper right corner.
-    localPosition.set(0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
-    cornerNode = new Node();
-    cornerNode.setParent(this);
-    cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(urCorner.getNow(null));
+//    // Upper right corner.
+//    localPosition.set(0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(urCorner.getNow(null));
 
     // Lower right corner.
-    localPosition.set(0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
-    cornerNode = new Node();
-    cornerNode.setParent(this);
-    cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(lrCorner.getNow(null));
+//    localPosition.set(0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(lrCorner.getNow(null));
 
-    // Lower left corner.
-    localPosition.set(-0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
+//    // Lower left corner.
+//    localPosition.set(-0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(llCorner.getNow(null));
+
+    //Hopefully middle of page.
+    localPosition.set(0.0f, 0.0f, 0.0f);
     cornerNode = new Node();
     cornerNode.setParent(this);
     cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(llCorner.getNow(null));
+    cornerNode.setRenderable(stencil.getNow(null));
+
   }
 
   public AugmentedImage getImage() {
