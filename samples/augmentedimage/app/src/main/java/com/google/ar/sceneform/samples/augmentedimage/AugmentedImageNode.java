@@ -71,7 +71,7 @@ public class AugmentedImageNode extends AnchorNode {
               .build();
       stencil =
               ModelRenderable.builder()
-                      .setSource(context, Uri.parse("models/blackwordstencil.sfb"))
+                      .setSource(context, Uri.parse("smallstencil2.sfb"))
                       .build();
     }
   }

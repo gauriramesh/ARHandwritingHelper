@@ -86,3 +86,18 @@ sceneform.asset('sampledata/models/blackwordstencil.obj',
         'mlh',
         'sampledata/models/blackwordstencil.sfa',
         'src/main/assets/blackwordstencil')
+
+sceneform.asset('sampledata/models/smallstencil.obj',
+        'default',
+        'sampledata/models/smallstencil.sfa',
+        'src/main/assets/smallstencil')
+
+sceneform.asset('sampledata/models/smallstencil2.obj',
+        'default',
+        'sampledata/models/smallstencil2.sfa',
+        'src/main/assets/smallstencil2')
+
+sceneform.asset('sampledata/models/smallstencilodd.obj',
+        'default',
+        'sampledata/models/smallstencilodd.sfa',
+        'src/main/assets/smallstencilodd')
